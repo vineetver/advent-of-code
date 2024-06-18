@@ -1,16 +1,17 @@
 from part1 import State
 
 validDigits = {
-  'one': 1,
-  'two': 2,
-  'three': 3,
-  'four': 4,
-  'five': 5,
-  'six': 6,
-  'seven': 7,
-  'eight': 8,
-  'nine': 9,
-};
+    "one": 1,
+    "two": 2,
+    "three": 3,
+    "four": 4,
+    "five": 5,
+    "six": 6,
+    "seven": 7,
+    "eight": 8,
+    "nine": 9,
+}
+
 
 def calibrate_values(line: str) -> int:
     state = State()
@@ -28,12 +29,13 @@ def calibrate_values(line: str) -> int:
             if i + key_length > line_length:
                 continue
 
-            if line[i:i + key_length] == key:
+            if line[i : i + key_length] == key:
                 state.update(str(value))
                 i += key_length - 2
                 break
 
     return state.get_value()
+
 
 total_sum = 0
 input_data = open(file="../input.txt", mode="r", encoding="utf8").read()
