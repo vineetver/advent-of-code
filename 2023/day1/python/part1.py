@@ -9,7 +9,7 @@ class State():
 
             self.last_occurrence = int(value)
 
-    def get_value(self):
+    def get_value(self) -> int:
         if self.first_occurrence == None:
             return 0
 
@@ -21,14 +21,14 @@ class State():
 def calibrate_values(line: str) -> int:
     state = State()
 
-    for ch in line:
-        if ch.isnumeric():
-            state.update(ch)
+    for char in line:
+        if char.isnumeric():
+            state.update(char)
 
     return state.get_value()
 
 total_sum = 0
-input_data = open(file="input.txt", mode="r", encoding="utf8").read()
+input_data = open(file="../input.txt", mode="r", encoding="utf8").read()
 for line in input_data.strip().split("\n"):
     total_sum += calibrate_values(line)
 print(total_sum)
